@@ -1,4 +1,13 @@
+/*
+Author: Md Nefaur Rahman Labib
+Created Date: 13 Nov 2019
+Web: labib147.github.io
+E-mail: nefaurrahmanlabib147@gmail.com
+*/
+//Connection with Arduino Uno
+
 ////////////////motor variables//////////
+
 int motorLA = A2;
 int motorLB = A3;
 int motorL_PWM = 10;
@@ -9,9 +18,9 @@ int motorR_PWM = 11;
 
 int speedL = 200;
 int speedR = 200;
-/////////////////////////////////////////
 
 ////////////////Sensor variables//////////
+
 int sensorPin[] = {2, 3, 4, 5, 6, 7, 8, 9};  //pin numbers of the array
 int sensorVal[8]; // variable to store sensor values
 //////////////////////////////////////////
@@ -30,8 +39,6 @@ void setup() {
     pinMode(sensorPin[i], INPUT);
   }
   Serial.begin(9600);
-  ///////////////
-
 
 }
 
@@ -53,12 +60,10 @@ void loop() {
     Forward();
   }
 
-
-
-
 }
 
 ///////////////////methods//////////////
+
 void IR_sensorReadUpdate() {
   for (int i = 0; i < 8; i++) {
     sensorVal[i] = digitalRead( sensorPin[i] );
@@ -69,6 +74,7 @@ void IR_sensorReadUpdate() {
 }
 
 ////////////motor methods/////////////
+
 void Forward() {
   analogWrite(motorL_PWM, speedL);
   digitalWrite(motorLA, HIGH);
