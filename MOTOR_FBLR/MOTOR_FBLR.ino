@@ -1,8 +1,9 @@
 /*
-Author: M M Shaifur Rahman
-Created Date: 11 Nov 2016
-Web: http://shaifur.me
-E-mail: mail@shaifur.me
+Author: Md Nefaur Rahman Labib
+Created Date: 13 Nov 2019
+Web: labib147.github.io
+E-mail: nefaurrahmanlabib147@gmail.com
+
 Connection Diagram:
 Arduino <-->  Motor Driver
   D2    <--> MotorA1
@@ -11,9 +12,11 @@ Arduino <-->  Motor Driver
   D5    <--> MotorB1
   D7    <--> MotorB2
   D6    <--> MotorB-PWM
+  
 Description:
 This code will help you to test any L293D or L298N based standard Motor Driver.This default code will drive your every possible combination. Use this functions and do further modification to make it work in your real project.
 */
+//The code is written for Arduino Mega
 
 byte LeftMotorA = 26;
 byte LeftMotorB = 28;
@@ -32,7 +35,6 @@ pinMode(3,OUTPUT);
 pinMode(4,OUTPUT);
 pinMode(5,OUTPUT);
 pinMode(6,OUTPUT);
-
 }
 
 void loop() 
@@ -40,7 +42,7 @@ void loop()
 MotorSpeed(); // Set Motor Speed
 Serial.println("Driving Forward");
 drive_forward();
-delay(1000);
+delay(1000);//1 second Delay
 motor_stop();
 
 Serial.println("Driving Forward");
@@ -64,7 +66,7 @@ delay(2000);
 
 // Motor Driving Functions
 
-// Set Motor Speed 0 is stop & 255 is max speed
+// Set Motor Speed 0 for stop & 255 is max speed of motor divided in voltage from range (0-255)
 void MotorSpeed(){
 analogWrite(LeftMSpeed, 255);
 analogWrite(RightMSpeed,255);
