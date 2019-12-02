@@ -1,0 +1,30 @@
+/*
+  Author: Md Nefaur Rahman Labib
+  Date: 12 Dec 2019
+  Web: labib147.github.io
+  contact@ nefaurrahmanlabib147@gmail.com
+*/
+//This Code is written for Arduino Uno
+
+int v = 0;
+void setup()
+
+{
+  pinMode(A0, INPUT); //Signal for LDR
+  pinMode(8, OUTPUT); //Signal for LED
+  digitalWrite(8, HIGH);
+  Serial.begin(9600);
+}
+
+void loop()
+
+{
+  v = analogRead(A0);
+  if (v < 700) {
+    digitalWrite(8, HIGH);
+    Serial.println(v);
+  } else if (v > 750) {
+    digitalWrite(8, LOW);
+    Serial.println(v);
+  }
+}
